@@ -9,8 +9,8 @@ from socket import timeout
 import re
 import time
 
-clients_domain = "www.alawpro.com"
-keyword = "jeff rudman"
+clients_domain = input("Input the domain to check, eg 'polypostalpackaging.com': ")
+keyword = input("Input your keyword: ")
 simple_query = "https://www.google.com/search?num=100&ion=1&espv=&ie=UTF-8&q="
 opener = urllib.request.FancyURLopener()
 opener.addheaders = [('User-agent', 'Mozilla/5.0')]
@@ -40,9 +40,18 @@ except ValueError as e:
 
 
 for i in links:
-    print(i)
+    #print(i)
     if clients_domain in str(i):
-        print("Website " + str(i) + " found at position " + str(int(links.index(i))+1) + " for keyword " + str(keyword))
+        output = "Website " + str(i) + " found at position " + str(int(links.index(i))+1) + " for keyword " + str(keyword)
         break
     else:
-        pass
+        output = "Website is not in Top 100 Google for this keyword."
+
+print (output)
+
+
+
+
+
+
+
